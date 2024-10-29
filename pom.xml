@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>Swag-Labs</artifactId>
+    <groupId>com.practice.selenium</groupId>
+    <artifactId>SQAPractice01Selenium</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -14,7 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-<!--  Add the dependencies  -->
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -23,7 +22,6 @@
             <version>4.23.0</version>
         </dependency>
 
-<!--  Test Next Generation Dependency     -->
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -37,6 +35,7 @@
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
         </dependency>
+
 
 
 
