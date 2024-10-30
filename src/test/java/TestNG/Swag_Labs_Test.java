@@ -187,6 +187,130 @@ public class Swag_Labs_Test {
 
 
 
+        //------------------------------ Product 4: Sauce Labs Fleece Jacket -------------------------------
+
+        System.out.println("\n\nVerify the Sauce Labs  product04 details :");
+
+        String expectedText_product04_Heading = "Sauce Labs Fleece Jacket";
+
+        // Verifying if the correct element is selected
+        String actualText_product04_Heading = driver.findElement(By.xpath("//*[@id=\"item_5_title_link\"]/div")).getText();
+
+
+        if (expectedText_product04_Heading.equals(actualText_product04_Heading)) {
+            System.out.println("Verification passed: The product04 heading matches expected text.");
+        } else {
+            System.out.println("Verification failed: The product04 heading does not match expected text.");
+        }
+
+        //Verifying description is correct
+        String expectedText_product04_Description = "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.";
+
+        String actualText_product04_Description = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[4]/div[2]/div[1]/div")).getText();
+
+        if (expectedText_product04_Description.equals(actualText_product04_Description)) {
+            System.out.println("Verification passed: The product04 description matches expected text.");
+        }
+        else{
+            System.out.println("Verification failed: The product04 description does not match expected text.");
+        }
+
+        //Verifying the product price
+        String expectedText_product04_Price = "$49.99";
+
+        String actualText_product04_Price = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[4]/div[2]/div[2]/div")).getText();
+
+        if (expectedText_product04_Price.equals(actualText_product04_Price)) {
+            System.out.println("Verification passed: The product04 price matches expected text.");
+        }
+        else{
+            System.out.println("Verification failed: The product04 price does not match expected text.");
+        }
+
+
+        //------------------------------ Product 5: Sauce Labs Onesie -------------------------------
+
+        System.out.println("\n\nVerify the Sauce Labs  product05 details :");
+
+        String expectedText_product05_Heading = "Sauce Labs Onesie";
+
+        // Verifying if the correct element is selected
+        String actualText_product05_Heading = driver.findElement(By.xpath("//*[@id=\"item_2_title_link\"]/div")).getText();
+
+
+        if (expectedText_product05_Heading.equals(actualText_product05_Heading)) {
+            System.out.println("Verification passed: The product05heading matches expected text.");
+        } else {
+            System.out.println("Verification failed: The product05heading does not match expected text.");
+        }
+
+        //Verifying description is correct
+        String expectedText_product05_Description = "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.";
+
+        String actualText_product05_Description = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[5]/div[2]")).getText();
+
+        if (expectedText_product05_Description.equals(actualText_product05_Description)) {
+            System.out.println("Verification passed: The product05description matches expected text.");
+        }
+        else{
+            System.out.println("Verification failed: The product05description does not match expected text.");
+        }
+
+        //Verifying the product price
+        String expectedText_product05_Price = "$7.99";
+
+        String actualText_product05_Price = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[5]/div[2]/div[2]/div")).getText();
+
+        if (expectedText_product05_Price.equals(actualText_product05_Price)) {
+            System.out.println("Verification passed: The product 05price matches expected text.");
+        }
+        else{
+            System.out.println("Verification failed: The product 05price does not match expected text.");
+        }
+
+
+        //------------------------------ Product 6: Test.allTheThings() T-Shirt (Red) -------------------------------
+
+        System.out.println("\n\nVerify the Sauce Labs product 06 details :");
+
+        String expectedText_product06_Heading = "Test.allTheThings() T-Shirt (Red)";
+
+        // Verifying if the correct element is selected
+        String actualText_product06_Heading = driver.findElement(By.xpath("//*[@id=\"item_3_title_link\"]/div")).getText();
+
+
+        if (expectedText_product06_Heading.equals(actualText_product06_Heading)) {
+            System.out.println("Verification passed: The product 06heading matches expected text.");
+        } else {
+            System.out.println("Verification failed: The product 06heading does not match expected text.");
+        }
+
+        //Verifying description is correct
+        String expectedText_product06_Description = "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.";
+
+        String actualText_product06_Description = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[6]/div[2]/div[1]/div")).getText();
+
+        if (expectedText_product06_Description.equals(actualText_product06_Description)) {
+            System.out.println("Verification passed: The product 06 description matches expected text.");
+        }
+        else{
+            System.out.println("Verification failed: The product 06 description does not match expected text.");
+        }
+
+        //Verifying the product price
+        String expectedText_product06_Price = "$15.99";
+
+        String actualText_product06_Price = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[6]/div[2]/div[2]/div")).getText();
+
+        if (expectedText_product06_Price.equals(actualText_product06_Price)) {
+            System.out.println("Verification passed: The product 06 price matches expected text.");
+        }
+        else{
+            System.out.println("Verification failed: The product 06 price does not match expected text.");
+        }
+
+
+
 
     }
 
