@@ -310,8 +310,20 @@ public class Swag_Labs_Test {
         }
 
 
+    }
 
+    // Test Case 003:
+    @Test(priority = 3)
+    public void AddtoCartBTNTest(){
 
+        System.out.println("----------------TC 003----------------\n");
+        System.out.println("ADD TO CART BTN TEST \n");
+
+        //------------------------------ Product 1: Sauce Labs Backpack-------------------------------
+
+        System.out.println("Verify the Product 01 : Sauce Labs Backpack ");
+
+        String Product01_Cart_BTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
     }
 
 
