@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.List;
+import java.util.Random;
 
 public class Swag_Labs_Test {
 
@@ -468,11 +470,35 @@ public class Swag_Labs_Test {
             product06_removeAddCartBTN.click();
         }
 
+    }
 
+    // Test Case 004:
+    @Test(priority = 4)
+    public void RandomAddtoCartBTNTest() {
 
+        System.out.println("\n----------------TC 004----------------\n");
+        System.out.println("Random ADD TO CART BTN TEST \n");
 
+        List<WebElement> addToCartButtons = driver.findElements(By.className("btn btn_primary  "));
 
+        Random random = new Random();
+        int randomIndex = random.nextInt(addToCartButtons.size());
 
+        addToCartButtons.get(randomIndex).click();
+
+        WebElement cartIconCount = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String itemCount = cartIconCount.getText();
+
+        // Print the item count to confirm
+        System.out.println("Cart icon now shows item count: " + itemCount);
+
+        // Verify if the item count is as expected
+        int expectedCount = 1; // Change this based on your test case (e.g., previous cart count + 1)
+        if (Integer.parseInt(itemCount) == expectedCount) {
+            System.out.println("Test passed: Item count is correct.");
+        } else {
+            System.out.println("Test failed: Item count is incorrect.");
+        }
 
 
 
