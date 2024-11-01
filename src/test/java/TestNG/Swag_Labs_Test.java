@@ -479,7 +479,7 @@ public class Swag_Labs_Test {
         System.out.println("\n----------------TC 004----------------\n");
         System.out.println("Random ADD TO CART BTN TEST \n");
 
-        List<WebElement> addToCartButtons = driver.findElements(By.className("btn btn_primary  "));
+        List<WebElement> addToCartButtons = driver.findElements(By.className("inventory_item_price"));
 
         Random random = new Random();
         int randomIndex = random.nextInt(addToCartButtons.size());
