@@ -3,6 +3,7 @@ package TestNG;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -477,7 +478,7 @@ public class Swag_Labs_Test {
     public void RandomAddtoCartBTNTest() {
 
         System.out.println("\n----------------TC 004----------------\n");
-        System.out.println("Random ADD TO CART BTN TEST \n");
+        System.out.println("RANDOM TEST SINGLE ADD TO CART BTN \n");
 
         List<WebElement> addToCartButtons = driver.findElements(By.className("inventory_item_price"));
 
@@ -501,7 +502,41 @@ public class Swag_Labs_Test {
         }
 
 
+    }
 
+    // Test Case 005:
+    @Test(priority = 5)
+    public void Random_Multiple_AddtoCartBTNTest() {
+
+        System.out.println("\n----------------TC 004----------------\n");
+        System.out.println("RANDOMLY TEST MULTIPLE ADD TO CART BTN\n");
+
+        List<WebElement> addToCartButtons = driver.findElements(By.className("inventory_item_price"));
+
+
+        Random random = new Random();
+        int numberOfItemsToAdd = 3; // Change this to the number of items you want to add
+        for (int i = 0; i < numberOfItemsToAdd; i++) {
+            // Generate a random index for each iteration
+            int randomIndex = random.nextInt(addToCartButtons.size());
+
+            // Click on the randomly selected button
+            WebElement randomButton = addToCartButtons.get(randomIndex);
+            randomButton.click();
+            System.out.println("Clicked Add to Cart for item at product: " + randomIndex);
+        }
+
+
+
+        WebElement cartIcon = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        int cartCount = Integer.parseInt(cartIcon.getText());
+        if (cartCount > 0) {
+            System.out.println("Test passed: Item count is correct.");
+
+        }
+        else{
+            System.out.println("Test failed: Item count is incorrect.");
+        }
 
     }
 
