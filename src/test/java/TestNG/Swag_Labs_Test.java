@@ -1,10 +1,7 @@
 package TestNG;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -48,11 +45,11 @@ public class Swag_Labs_Test {
         if (expectedText.equals(actualText)) {
             System.out.println("Verify the page : ");
             System.out.println("Verification passed: The product page load successfully");
-            takeSnapShot(driver, "E:\\SQA\\Swag-Labs\\images\\verify the pages\\userauthentification\\LoginSuccess.png");
+            takeSnapShot(driver, "F:\\SQA PROJECTS\\Swag-labs\\images\\LoginSuccess.png");
         } else {
             System.out.println("Verify the page");
             System.out.println("Verification failed: The product page load unsuccessfully");
-            takeSnapShot(driver, "E:\\SQA\\Swag-Labs\\images\\verify the pages\\userauthentification\\LoginFailed.png");
+            takeSnapShot(driver, "F:\\SQA PROJECTS\\Swag-labs\\images\\LoginFailed.png");
         }
     }
 
@@ -316,14 +313,91 @@ public class Swag_Labs_Test {
     @Test(priority = 3)
     public void AddtoCartBTNTest(){
 
-        System.out.println("----------------TC 003----------------\n");
+        System.out.println("\n----------------TC 003----------------\n");
         System.out.println("ADD TO CART BTN TEST \n");
 
         //------------------------------ Product 1: Sauce Labs Backpack-------------------------------
 
         System.out.println("Verify the Product 01 : Sauce Labs Backpack ");
+        WebElement product01_addToCartBTN = driver.findElement(By.xpath("//button[text()='Add to cart'][1]"));
+        product01_addToCartBTN.click();
 
-        String Product01_Cart_BTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
+        WebElement cart_Icon_product1 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String initial_count_product1 = cart_Icon_product1.getText();
+
+
+        if (initial_count_product1.equals("1") ) {
+            System.out.println("Verification passed: The product 01 successfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product01_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]"));
+            product01_removeAddCartBTN.click();
+        }
+        else{
+            System.out.println("Verification failed: The product 01 unsuccessfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product01_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]"));
+            product01_removeAddCartBTN.click();
+        }
+
+        //------------------------------ Product 2: Sauce Labs Bike Light-------------------------------
+
+        System.out.println("\nVerify the Product 02 : Sauce Labs Bike Light ");
+        WebElement product02_addToCartBTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bike-light\"]"));
+        product02_addToCartBTN.click();
+
+        WebElement cart_Icon_product2 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String initial_count_product2 = cart_Icon_product2.getText();
+
+
+        if (initial_count_product2.equals("1") ) {
+            System.out.println("Verification passed: The product 02 successfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product02_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bike-light\"]"));
+            product02_removeAddCartBTN.click();
+        }
+        else{
+            System.out.println("Verification failed: The product 02 unsuccessfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product02_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bike-light\"]"));
+            product02_removeAddCartBTN.click();
+        }
+
+        //------------------------------ Product 3: Sauce Labs Bolt T-Shirt-------------------------------
+
+        System.out.println("\nVerify the Product 03 : Sauce Labs Bolt T-Shirt ");
+        WebElement product03_addToCartBTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bolt-t-shirt\"]"));
+        product03_addToCartBTN.click();
+
+        WebElement cart_Icon_product3 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String initial_count_product3 = cart_Icon_product3.getText();
+
+
+        if (initial_count_product3.equals("1") ) {
+            System.out.println("Verification passed: The product 03 successfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product03_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bolt-t-shirt\"]"));
+            product03_removeAddCartBTN.click();
+        }
+        else{
+            System.out.println("Verification failed: The product 03 unsuccessfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product03_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bolt-t-shirt\"]"));
+            product03_removeAddCartBTN.click();
+        }
+
+
+
+
+
+
+
+
     }
 
 
