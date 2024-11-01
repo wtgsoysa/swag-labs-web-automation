@@ -569,9 +569,45 @@ public class Swag_Labs_Test {
         List<String> sortedTitles = new ArrayList<>(productTitles);
         Collections.sort(sortedTitles, Collections.reverseOrder());
 
+        System.out.println("\n"+ productTitles +"\n");
         // Verify if the products are displayed in "Z to A" order
         if (productTitles.equals(sortedTitles)) {
             System.out.println("Products are correctly sorted in Z to A order.");
+        } else {
+            System.out.println("Products are not sorted correctly.");
+        }
+
+    }
+
+    // Test Case 007:
+    @Test(priority = 7)
+    public void sortingDropdown02(){
+        System.out.println("\n----------------TC 007----------------\n");
+        System.out.println("SORTING DROPDOWN ( A - Z )\n");
+
+
+        WebElement dropdown = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select"));
+        Select select = new Select(dropdown);
+        select.selectByVisibleText("Name (A to Z)");
+
+        System.out.println("Verify the Sorting Name ( A to Z) Product Load :");
+
+        // Get all product titles
+        List<WebElement> productElements = driver.findElements(By.className("inventory_item_name")); // Replace with the actual class name for product titles
+        List<String> productTitles = new ArrayList<>();
+
+        for (WebElement product : productElements) {
+            productTitles.add(product.getText());
+        }
+
+        // Copy product titles and sort in descending order for comparison
+        List<String> sortedTitles = new ArrayList<>(productTitles);
+        Collections.sort(sortedTitles);
+
+        System.out.println("\n"+ productTitles +"\n");
+        // Verify if the products are displayed in "A to Z" order
+        if (productTitles.equals(sortedTitles)) {
+            System.out.println("Products are correctly sorted in A to Z order.");
         } else {
             System.out.println("Products are not sorted correctly.");
         }
@@ -580,6 +616,7 @@ public class Swag_Labs_Test {
 
 
     }
+
 
 
     /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
