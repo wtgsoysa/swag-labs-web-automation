@@ -392,6 +392,85 @@ public class Swag_Labs_Test {
         }
 
 
+        //------------------------------ Product 4: Sauce Labs Fleece Jacket-------------------------------
+
+        System.out.println("\nVerify the Product 04 : Sauce Labs Fleece Jacket ");
+        WebElement product04_addToCartBTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-fleece-jacket\"]"));
+        product04_addToCartBTN.click();
+
+        WebElement cart_Icon_product4 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String initial_count_product4 = cart_Icon_product3.getText();
+
+
+        if (initial_count_product4.equals("1") ) {
+            System.out.println("Verification passed: The product 04 successfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product04_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-fleece-jacket\"]"));
+            product04_removeAddCartBTN.click();
+        }
+        else{
+            System.out.println("Verification failed: The product 04 unsuccessfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product04_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-fleece-jacket\"]"));
+            product04_removeAddCartBTN.click();
+        }
+
+
+        //------------------------------ Product 5: Sauce Labs Onesie-------------------------------
+
+        System.out.println("\nVerify the Product 05 : Sauce Labs Onesie ");
+        WebElement product05_addToCartBTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-onesie\"]"));
+        product05_addToCartBTN.click();
+
+        WebElement cart_Icon_product5 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String initial_count_product5 = cart_Icon_product3.getText();
+
+
+        if (initial_count_product5.equals("1") ) {
+            System.out.println("Verification passed: The product 05 successfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product05_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-onesie\"]"));
+            product05_removeAddCartBTN.click();
+        }
+        else{
+            System.out.println("Verification failed: The product 05 unsuccessfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product05_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-onesie\"]"));
+            product05_removeAddCartBTN.click();
+        }
+
+        //------------------------------ Product 6: Test.allTheThings() T-Shirt (Red)-------------------------------
+
+        System.out.println("\nVerify the Product 06 : Test.allTheThings() T-Shirt (Red) ");
+        WebElement product06_addToCartBTN = driver.findElement(By.xpath("//*[@id=\"add-to-cart-test.allthethings()-t-shirt-(red)\"]"));
+        product06_addToCartBTN.click();
+
+        WebElement cart_Icon_product6 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        String initial_count_product6 = cart_Icon_product3.getText();
+
+
+        if (initial_count_product6.equals("1") ) {
+            System.out.println("Verification passed: The product 06 successfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product06_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[6]/div[2]/div[2]/div"));
+            product06_removeAddCartBTN.click();
+        }
+        else{
+            System.out.println("Verification failed: The product 06 unsuccessfully added to the cart");
+
+            //Remove the add to cart button
+            WebElement product06_removeAddCartBTN = driver.findElement(By.xpath("//*[@id=\"inventory_container\"]/div/div[6]/div[2]/div[2]/div"));
+            product06_removeAddCartBTN.click();
+        }
+
+
+
+
 
 
 
