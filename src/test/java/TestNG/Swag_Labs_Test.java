@@ -3,6 +3,7 @@ package TestNG;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -10,6 +11,8 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -20,6 +23,7 @@ public class Swag_Labs_Test {
     WebDriver driver;
     String actualText;
     String expectedText;
+    String expectedSort;
 
     // Before Test Section
     @BeforeTest
@@ -314,7 +318,7 @@ public class Swag_Labs_Test {
 
     // Test Case 003:
     @Test(priority = 3)
-    public void AddtoCartBTNTest(){
+    public void addtoCartBTNTest(){
 
         System.out.println("\n----------------TC 003----------------\n");
         System.out.println("ADD TO CART BTN TEST \n");
@@ -475,7 +479,7 @@ public class Swag_Labs_Test {
 
     // Test Case 004:
     @Test(priority = 4)
-    public void RandomAddtoCartBTNTest() {
+    public void randomAddtoCartBTNTest() {
 
         System.out.println("\n----------------TC 004----------------\n");
         System.out.println("RANDOM TEST SINGLE ADD TO CART BTN \n");
@@ -506,9 +510,9 @@ public class Swag_Labs_Test {
 
     // Test Case 005:
     @Test(priority = 5)
-    public void Random_Multiple_AddtoCartBTNTest() {
+    public void random_Multiple_AddtoCartBTNTest() {
 
-        System.out.println("\n----------------TC 004----------------\n");
+        System.out.println("\n----------------TC 005----------------\n");
         System.out.println("RANDOMLY TEST MULTIPLE ADD TO CART BTN\n");
 
         List<WebElement> addToCartButtons = driver.findElements(By.className("inventory_item_price"));
@@ -537,6 +541,43 @@ public class Swag_Labs_Test {
         else{
             System.out.println("Test failed: Item count is incorrect.");
         }
+
+    }
+
+    // Test Case 006:
+    @Test(priority = 6)
+    public void sortingDropdown01(){
+        System.out.println("\n----------------TC 006----------------\n");
+        System.out.println("SORTING DROPDOWN ( Z - A )\n");
+
+
+        WebElement dropdown = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select"));
+        Select select = new Select(dropdown);
+        select.selectByVisibleText("Name (Z to A)");
+
+        System.out.println("Verify the Sorting Name ( Z to A) Product Load :");
+
+        // Get all product titles
+        List<WebElement> productElements = driver.findElements(By.className("inventory_item_name")); // Replace with the actual class name for product titles
+        List<String> productTitles = new ArrayList<>();
+
+        for (WebElement product : productElements) {
+            productTitles.add(product.getText());
+        }
+
+        // Copy product titles and sort in descending order for comparison
+        List<String> sortedTitles = new ArrayList<>(productTitles);
+        Collections.sort(sortedTitles, Collections.reverseOrder());
+
+        // Verify if the products are displayed in "Z to A" order
+        if (productTitles.equals(sortedTitles)) {
+            System.out.println("Products are correctly sorted in Z to A order.");
+        } else {
+            System.out.println("Products are not sorted correctly.");
+        }
+
+
+
 
     }
 
