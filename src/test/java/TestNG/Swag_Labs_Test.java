@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Swag_Labs_Test {
 
@@ -600,7 +601,7 @@ public class Swag_Labs_Test {
             productTitles.add(product.getText());
         }
 
-        // Copy product titles and sort in descending order for comparison
+        // Copy product titles and sort in ascending order for comparison
         List<String> sortedTitles = new ArrayList<>(productTitles);
         Collections.sort(sortedTitles);
 
@@ -613,9 +614,45 @@ public class Swag_Labs_Test {
         }
 
 
-
-
     }
+
+    // Test Case 008:
+    @Test(priority = 8)
+    public void sortingDropdown03() {
+        System.out.println("\n----------------TC 008----------------\n");
+        System.out.println("SORTING DROPDOWN PRICE (low to high)\n");
+
+        WebElement dropdown = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select"));
+        Select select = new Select(dropdown);
+        select.selectByVisibleText("Price (low to high)");
+
+        System.out.println("Verify the Sorting Price (low to high) Product Load:");
+
+        // Get all product prices
+        List<WebElement> productElements = driver.findElements(By.className("inventory_item_price"));
+        List<String> productPrices = new ArrayList<>();
+
+        for (WebElement product : productElements) {
+            productPrices.add(product.getText().replace("$", ""));  // Remove dollar sign if present
+        }
+
+        // Convert product prices to double for accurate comparison
+        List<Double> productPricesDouble = productPrices.stream().map(Double::parseDouble).collect(Collectors.toList());
+
+        // Create a copy of product prices and sort in ascending order for comparison
+        List<Double> sortedPrices = new ArrayList<>(productPricesDouble);
+        Collections.sort(sortedPrices);
+
+        System.out.println("\nOriginal Prices: " + productPricesDouble);
+        System.out.println("Expected Sorted Prices (low to high): " + sortedPrices + "\n");
+
+        if (productPricesDouble.equals(sortedPrices)) {
+            System.out.println("Products are correctly sorted in (low to high) order.");
+        } else {
+            System.out.println("Products are not sorted correctly.");
+        }
+    }
+
 
 
 
