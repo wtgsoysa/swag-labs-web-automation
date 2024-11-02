@@ -690,6 +690,40 @@ public class Swag_Labs_Test {
         }
     }
 
+    // Test Case 010:
+    @Test(priority = 10)
+    public void navigateToCart(){
+        System.out.println("\n----------------TC 010----------------\n");
+        System.out.println("NAVIGATE TO YOUR CART PAGE\n");
+
+        // Navigate into checkout page
+        WebElement cart = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        cart.click();
+
+        expectedText = "Your Cart";
+        actualText = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if(actualText.equals(expectedText)){
+            System.out.println("Verification Passed : Successfully navigated to the your cart page.");
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully navigated to the your cart page.");
+        }
+
+        System.out.println("\nTEST THE CHECKOUT PAGE HEADING ");
+
+        String expectedHeading = "Swag Labs";
+        String actualHeading = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[1]/div[2]/div")).getText();
+
+        if(actualHeading.equals(expectedHeading)){
+            System.out.println("Verification Passed : Successfully check the your cart Heading");
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully check the your cart Heading.");
+        }
+
+    }
+
 
 
 
