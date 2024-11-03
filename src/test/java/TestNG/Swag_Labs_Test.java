@@ -4,13 +4,11 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -696,7 +694,7 @@ public class Swag_Labs_Test {
         System.out.println("\n----------------TC 010----------------\n");
         System.out.println("NAVIGATE TO YOUR CART PAGE\n");
 
-        // Navigate into checkout page
+        // Navigate into your cart page
         WebElement cart = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
         cart.click();
 
@@ -746,6 +744,37 @@ public class Swag_Labs_Test {
 
 
     }
+
+    // Test Case 12:
+    @Test(priority = 12)
+    public void addSomeProductToCart() {
+        System.out.println("\n----------------TC 011----------------\n");
+        System.out.println("ADD PRODUCT TO YOUR CART PAGE\n");
+
+        WebElement product1 = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]"));
+        product1.click();
+        WebElement product2 = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bolt-t-shirt\"]"));
+        product2.click();
+
+
+        // Navigate into your cart page
+        WebElement cart = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        cart.click();
+
+        String expectedTextHeading = "Your Cart";
+        String actualTextHeading = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if(actualTextHeading.equals(expectedTextHeading)){
+            System.out.println("Verification Passed : Successfully navigated to the your cart page.");
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully navigated to the your cart page.");
+        }
+
+    }
+
+
+
 
 
 
