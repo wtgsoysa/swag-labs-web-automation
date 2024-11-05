@@ -1001,6 +1001,37 @@ public class Swag_Labs_Test {
 
     }
 
+    //Test Case 15:
+    @Test(priority = 15)
+    public void addProducts() {
+        System.out.println("\n--------------TC 014----------------\n");
+        System.out.println("AGAIN ADD SOME PRODUCTS\n");
+
+        WebElement product1 = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-fleece-jacket\"]"));
+        product1.click();
+        WebElement product2 = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-onesie\"]"));
+        product2.click();
+
+
+        // Navigate into your cart page
+        WebElement cart = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
+        cart.click();
+
+        String expectedTextHeading = "Your Cart";
+        String actualTextHeading = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if(actualTextHeading.equals(expectedTextHeading)){
+            System.out.println("Verification Passed : Successfully navigated to the your cart page.");
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully navigated to the your cart page.");
+        }
+
+        WebElement checkoutBtn = driver.findElement(By.xpath("//*[@id=\"checkout\"]"));
+        checkoutBtn.click();
+
+    }
+
 
 
 
