@@ -911,13 +911,103 @@ public class Swag_Labs_Test {
     }
 
 
+    //Test Case 14:
+    @Test(priority = 14)
+    public void checkRemoveBTN() {
+        System.out.println("\n--------------TC 014----------------\n");
+        System.out.println("CHECK AVAILABILITY OF REMOVE BTN\n");
+        System.out.println("Card 01 Remove Button Test : \n");
+
+        String expectedremoveBtn01 = "Remove";
+        String actualremoveBtn01 = driver.findElement(By.xpath("//*[@id=\"remove-test.allthethings()-t-shirt-(red)\"]")).getText();
+        WebElement removeBtn01 = driver.findElement(By.xpath("//*[@id=\"remove-test.allthethings()-t-shirt-(red)\"]"));
+
+        System.out.println(actualremoveBtn01);
+        if(actualremoveBtn01.equals(expectedremoveBtn01)){
+            System.out.println("Verification Passed : Available the card 01 remove button \n");
+
+            removeBtn01.click(); // Click the button to remove item from cart
+            // Verify item is removed
+            boolean isRemoved = driver.findElements(By.xpath("//*[@id=\"remove-test.allthethings()-t-shirt-(red)\"]")).isEmpty();
+            if (isRemoved) {
+                System.out.println("Card 01 has been successfully removed from the cart\n");
+            } else {
+                System.out.println("Failed to remove Card 02 from the cart\n");
+            }
+        }
+        else{
+            System.out.println("Verification Failed : Unavailable the card 01 remove button\n");
+        }
+
+        System.out.println("Card 02 Remove Button Test : \n");
+
+        String expectedremoveBtn02 = "Remove";
+        String actualremoveBtn02 = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]")).getText();
+        WebElement removeBtn02 = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]"));
+
+        System.out.println(actualremoveBtn02);
+        if(actualremoveBtn02.equals(expectedremoveBtn02)){
+            System.out.println("Verification Passed : Available the card 02 remove button \n");
+
+            removeBtn02.click(); // Click the button to remove item from cart
+            // Verify item is removed
+            boolean isRemoved = driver.findElements(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]")).isEmpty();
+            if (isRemoved) {
+                System.out.println("Card 01 has been successfully removed from the cart\n");
+            } else {
+                System.out.println("Failed to remove Card 02 from the cart\n");
+            }
+        }
+        else{
+            System.out.println("Verification Failed : Unavailable the card 02 remove button\n");
+        }
+
+        System.out.println("Card 03 Remove Button Test : \n");
+
+        String expectedremoveBtn03 = "Remove";
+        String actualremoveBtn03 = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bolt-t-shirt\"]")).getText();
+        WebElement removeBtn03 = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bolt-t-shirt\"]"));
+
+        System.out.println(actualremoveBtn03);
+        if(actualremoveBtn03.equals(expectedremoveBtn03)){
+            System.out.println("Verification Passed : Available the card 03 remove button \n");
+
+            removeBtn03.click(); // Click the button to remove item from cart
+            // Verify item is removed
+            boolean isRemoved = driver.findElements(By.xpath("//*[@id=\"remove-sauce-labs-bolt-t-shirt\"]")).isEmpty();
+            if (isRemoved) {
+                System.out.println("Card 03 has been successfully removed from the cart\n");
+            } else {
+                System.out.println("Failed to remove Card 02 from the cart\n");
+            }
+        }
+        else{
+            System.out.println("Verification Failed : Unavailable the card 03 remove button\n");
+        }
+
+        WebElement continueShopping = driver.findElement(By.xpath("//*[@id=\"continue-shopping\"]"));
+        continueShopping.click();
+
+        expectedText = "Products";
+        actualText = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if(actualText.equals(expectedText)){
+            System.out.println("Verification Passed : Successfully navigated to the shopping page.");
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully navigated to the shopping page.");
+        }
+
+
+    }
 
 
 
 
 
 
-    /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
+
+        /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
 
     public void userLogin() throws InterruptedException {
         // Calling the SWAG-LABS URL
