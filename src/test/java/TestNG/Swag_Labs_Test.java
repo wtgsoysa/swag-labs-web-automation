@@ -748,7 +748,7 @@ public class Swag_Labs_Test {
     // Test Case 12:
     @Test(priority = 12)
     public void addSomeProductToCart() {
-        System.out.println("\n----------------TC 011----------------\n");
+        System.out.println("\n----------------TC 012----------------\n");
         System.out.println("ADD PRODUCT TO YOUR CART PAGE\n");
 
         WebElement product1 = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]"));
@@ -769,6 +769,143 @@ public class Swag_Labs_Test {
         }
         else{
             System.out.println("Verification Failed : Unsuccessfully navigated to the your cart page.");
+        }
+
+
+    }
+
+    //Test Case 13:
+    @Test(priority = 13)
+    public void checkCards(){
+        System.out.println("\n--------------TC 013----------------\n");
+        System.out.println("CHECK CARDS OF YOUR CART PAGE\n");
+
+        //Test Card 01 : Sauce Labs Backpack
+
+        String expectedcard01Heading  = "Test.allTheThings() T-Shirt (Red)";
+        String actualcard01Heading = driver.findElement(By.xpath("//*[@id=\"item_3_title_link\"]/div")).getText();
+
+        System.out.println("Card 01 Test : ");
+        System.out.println(actualcard01Heading + "\n");
+        System.out.println("Card 01 Heading Test : ");
+        if(actualcard01Heading.equals(expectedcard01Heading )){
+            System.out.println("Verification Passed : Successfully check the card 01 Heading of your cart.\n");
+
+            System.out.println("Card 01 Description Test :");
+
+            String expectedcard01Description = "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.";
+            String actualcard01Description = driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[1]")).getText();
+            System.out.println(actualcard01Description + "\n");
+
+            if(actualcard01Description.equals(expectedcard01Description)){
+                System.out.println("Verification Passed : Successfully check the card 01 Description of your cart.\n");
+
+                System.out.println("Card 01 Price Test :");
+
+                String expectedcard01Price = "$15.99";
+                String actualcard01Price = driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/div")).getText();
+
+                System.out.println(actualcard01Price + "\n");
+
+                if(actualcard01Price.equals(expectedcard01Price)){
+                    System.out.println("Verification Passed : Successfully check the card 01 Price of your cart.\n");
+                }
+                else{
+                    System.out.println("Verification Failed : Unsuccessfully check the card 01 Price of your cart.\n");
+                }
+
+            }
+            else{
+                System.out.println("Verification Failed : Unsuccessfully check the card 01 Description of your cart.\n");
+            }
+
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully check the card 01 Heading of your cart.\n");
+        }
+
+
+
+        String expectedcard02Heading  = "Sauce Labs Backpack";
+        String actualcard02Heading = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div")).getText();
+
+        System.out.println("Card 02 Test : ");
+        System.out.println(actualcard02Heading + "\n");
+        if(actualcard02Heading.equals(expectedcard02Heading )){
+            System.out.println("Verification Passed : Successfully check the card 02 Heading of your cart.\n");
+
+            System.out.println("Card 02 Description Test :");
+
+            String expectedcard02Description = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
+            String actualcard02Description = driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[4]/div[2]/div[1]")).getText();
+
+            System.out.println(expectedcard02Description + "\n");
+
+            if(actualcard02Description.equals(expectedcard02Description)){
+                System.out.println("Verification Passed : Successfully check the card 02 Description of your cart.\n");
+
+                System.out.println("Card 02 Price Test :");
+
+                String expectedcard02Price = "$29.99";
+                String actualcard02Price = driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[4]/div[2]/div[2]/div")).getText();
+
+                System.out.println(actualcard02Price + "\n");
+
+                if(actualcard02Price.equals(expectedcard02Price)){
+                    System.out.println("Verification Passed : Successfully check the card 02 Price of your cart.\n");
+                }
+                else{
+                    System.out.println("Verification Failed : Unsuccessfully check the card 02 Price of your cart.\n");
+                }
+            }
+            else{
+                System.out.println("Verification Failed : Unsuccessfully check the card 02 Description of your cart.\n");
+            }
+
+
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully check the card 02 Heading of your cart.\n");
+        }
+
+        String expectedcard03Heading  = "Sauce Labs Bolt T-Shirt";
+        String actualcard03Heading = driver.findElement(By.xpath("//*[@id=\"item_1_title_link\"]/div")).getText();
+
+        System.out.println("Card 03 Test : ");
+        System.out.println(actualcard03Heading + "\n");
+        if(actualcard03Heading.equals(expectedcard03Heading )){
+            System.out.println("Verification Passed : Successfully check the card 03 Heading of your cart.\n");
+
+            System.out.println("Card 03 Description Test :");
+
+            String expectedcard03Description = "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.";
+            String actualcard03Description = driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[5]/div[2]/div[1]")).getText();
+
+            System.out.println(actualcard03Description +"\n");
+
+            if(actualcard03Description.equals(expectedcard03Description)){
+                System.out.println("Verification Passed : Successfully check the card 03 Description of your cart.\n");
+
+                System.out.println("Card 03 Price Test :");
+
+                String expectedcard03Price = "$15.99";
+                String actualcard03Price = driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[5]/div[2]/div[2]/div")).getText();
+
+                System.out.println(actualcard03Price + "\n");
+
+                if(actualcard03Price.equals(expectedcard03Price)){
+                    System.out.println("Verification Passed : Successfully check the card 03 Price of your cart.\n");
+                }
+                else{
+                    System.out.println("Verification Failed : Unsuccessfully check the card 03 Price of your cart.\n");
+                }
+            }
+            else{
+                System.out.println("Verification Failed : Unsuccessfully check the card 03 Description of your cart.\n");
+            }
+        }
+        else{
+            System.out.println("Verification Failed : Unsuccessfully check the card 03 Heading of your cart.\n");
         }
 
     }
