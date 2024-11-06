@@ -1100,6 +1100,34 @@ public class Swag_Labs_Test {
         }
     }
 
+    @Test(priority = 17)
+    public void verifyProductDetailsInCheckoutOverview() {
+        System.out.println("\n--------------TC 017----------------\n");
+        System.out.println("VERIFY PRODUCT DETAILS IN CHECKOUT OVERVIEW PAGE\n");
+
+        // Step 1: Verify the details for "Sauce Labs Fleece Jacket"
+        WebElement product1Name = driver.findElement(By.xpath("//*[@id=\"item_5_title_link\"]/div"));
+        WebElement product1Description = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[1]"));
+        WebElement product1Price = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[2]/div"));
+
+        if (product1Name.isDisplayed() && product1Description.isDisplayed() && product1Price.isDisplayed()) {
+            System.out.println("Verification Passed : Product 1 - Sauce Labs Fleece Jacket: Verified Successfully.");
+        } else {
+            System.out.println("Verification Failed : Product 1 - Sauce Labs Fleece Jacket: Verification Failed.");
+        }
+
+        // Step 2: Verify the details for "Sauce Labs Onesie"
+        WebElement product2Name = driver.findElement(By.xpath("//*[@id=\"item_2_title_link\"]/div"));
+        WebElement product2Description = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[1]"));
+        WebElement product2Price = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[2]/div"));
+
+        if (product2Name.isDisplayed() && product2Description.isDisplayed() && product2Price.isDisplayed()) {
+            System.out.println("Verification Passed : Product 2 - Sauce Labs Onesie: Verified Successfully.");
+        } else {
+            System.out.println("Verification Failed : Product 2 - Sauce Labs Onesie: Verification Failed.");
+        }
+    }
+
 
 
 
