@@ -1167,6 +1167,22 @@ public class Swag_Labs_Test {
         } else {
             System.out.println("Price Total Information: Verification Failed.\n");
         }
+
+        // navigate to complete page
+        WebElement finish = driver.findElement(By.xpath("//*[@id=\"finish\"]"));
+        finish.click();
+        System.out.println("\nVerifying navigation to the checkout : complete page...");
+
+        String expectedComplete = "Checkout: Complete!";
+        String actualComplete = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if (actualComplete.equals(expectedComplete)) {
+            System.out.println("Verification Passed : Navigate Checkout Complete page.");
+        }
+        else{
+            System.out.println("Verification Failed : Navigate Checkout Complete page.");
+        }
+
     }
 
 
