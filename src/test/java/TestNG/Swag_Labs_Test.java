@@ -1100,6 +1100,94 @@ public class Swag_Labs_Test {
         }
     }
 
+    @Test(priority = 17)
+    public void verifyProductDetailsInCheckoutOverview() {
+        System.out.println("\n--------------TC 017----------------\n");
+        System.out.println("VERIFY PRODUCT DETAILS IN CHECKOUT OVERVIEW PAGE\n");
+
+        // Step 1: Verify the details for "Sauce Labs Fleece Jacket"
+        WebElement product1Name = driver.findElement(By.xpath("//*[@id=\"item_5_title_link\"]/div"));
+        WebElement product1Description = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[1]"));
+        WebElement product1Price = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[2]/div"));
+
+        if (product1Name.isDisplayed() && product1Description.isDisplayed() && product1Price.isDisplayed()) {
+            System.out.println("Verification Passed : Product 1 - Sauce Labs Fleece Jacket: Verified Successfully.");
+        } else {
+            System.out.println("Verification Failed : Product 1 - Sauce Labs Fleece Jacket: Verification Failed.");
+        }
+
+        // Step 2: Verify the details for "Sauce Labs Onesie"
+        WebElement product2Name = driver.findElement(By.xpath("//*[@id=\"item_2_title_link\"]/div"));
+        WebElement product2Description = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[1]"));
+        WebElement product2Price = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[2]/div"));
+
+        if (product2Name.isDisplayed() && product2Description.isDisplayed() && product2Price.isDisplayed()) {
+            System.out.println("Verification Passed : Product 2 - Sauce Labs Onesie: Verified Successfully.");
+        } else {
+            System.out.println("Verification Failed : Product 2 - Sauce Labs Onesie: Verification Failed.");
+        }
+    }
+
+
+    @Test(priority = 18)
+    public void verifyPaymentShippingAndTotalPriceInformation() {
+        System.out.println("\n--------------TC 018----------------\n");
+        System.out.println("VERIFY PAYMENT, SHIPPING, AND TOTAL PRICE INFORMATION IN CHECKOUT OVERVIEW PAGE\n");
+
+        // Step 1: Verify Payment Information
+        WebElement paymentInfo = driver.findElement(By.xpath("//div[contains(text(),'Payment Information:')]"));
+        WebElement paymentDetails = driver.findElement(By.xpath("//div[contains(text(),'SauceCard #31337')]"));
+
+        System.out.println("Test the Payment Informations :");
+        if (paymentInfo.isDisplayed() && paymentDetails.isDisplayed()) {
+            System.out.println(" Payment Information: Verified Successfully.\n");
+        } else {
+            System.out.println(" Payment Information: Verification Failed.\n");
+        }
+
+        System.out.println("Test the Shipping Informations :");
+        // Step 2: Verify Shipping Information
+        WebElement shippingInfo = driver.findElement(By.xpath("//div[contains(text(),'Shipping Information:')]"));
+        WebElement shippingDetails = driver.findElement(By.xpath("//div[contains(text(),'Free Pony Express Delivery!')]"));
+
+        if (shippingInfo.isDisplayed() && shippingDetails.isDisplayed()) {
+            System.out.println("Shipping Information: Verified Successfully.\n");
+        } else {
+            System.out.println("Shipping Information: Verification Failed.\n");
+        }
+
+        System.out.println("Test the Price Total :");
+        // Step 3: Verify Price Total (Item Total, Tax, and Total Price)
+        WebElement itemTotal = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[2]/div[6]"));
+        WebElement tax = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[2]/div[7]"));
+        WebElement totalPrice = driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[2]/div[8]"));
+
+        if (itemTotal.isDisplayed() && tax.isDisplayed() && totalPrice.isDisplayed()) {
+            System.out.println("Price Total Information: Verified Successfully.\n");
+        } else {
+            System.out.println("Price Total Information: Verification Failed.\n");
+        }
+
+        // navigate to complete page
+        WebElement finish = driver.findElement(By.xpath("//*[@id=\"finish\"]"));
+        finish.click();
+        System.out.println("\nVerifying navigation to the checkout : complete page...");
+
+        String expectedComplete = "Checkout: Complete!";
+        String actualComplete = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if (actualComplete.equals(expectedComplete)) {
+            System.out.println("Verification Passed : Navigate Checkout Complete page.");
+        }
+        else{
+            System.out.println("Verification Failed : Navigate Checkout Complete page.");
+        }
+
+    }
+
+
+
+
 
 
 
