@@ -1183,6 +1183,42 @@ public class Swag_Labs_Test {
             System.out.println("Verification Failed : Navigate Checkout Complete page.");
         }
 
+        // Verify the correct page
+        expectedText = "Products";
+        actualText = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        if (expectedText.equals(actualText)) {
+            System.out.println("Verify the page : ");
+            System.out.println("Verification passed: The product page load successfully");
+
+        } else {
+            System.out.println("Verify the page");
+            System.out.println("Verification failed: The product page load unsuccessfully");
+
+        }
+
+    }
+
+    @Test(priority = 19)
+    public void verifyOrderisComplete() {
+        System.out.println("\n--------------TC 019----------------\n");
+        System.out.println("VERIFY ORDER IS COMPLETE \n");
+
+        String expectedOrder = "Thank you for your order!";
+        String actualOrdeer = driver.findElement(By.xpath("//*[@id=\"checkout_complete_container\"]/h2")).getText();
+
+        if (actualOrdeer.equals(expectedOrder)) {
+            System.out.println("Verification Passed : Order is Complete.\n");
+        }
+        else{
+            System.out.println("Verification Failed : Order is Complete.\n");
+        }
+
+        System.out.println("Navigate to the home page");
+        WebElement navigateHome = driver.findElement(By.xpath("//*[@id=\"back-to-products\"]"));
+        navigateHome.click();
+
+
     }
 
 
@@ -1193,8 +1229,7 @@ public class Swag_Labs_Test {
 
 
 
-
-    /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
+        /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
 
     public void userLogin() throws InterruptedException {
         // Calling the SWAG-LABS URL
