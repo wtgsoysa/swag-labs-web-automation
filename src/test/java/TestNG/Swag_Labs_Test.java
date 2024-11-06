@@ -1004,7 +1004,7 @@ public class Swag_Labs_Test {
     //Test Case 15:
     @Test(priority = 15)
     public void addProducts() {
-        System.out.println("\n--------------TC 014----------------\n");
+        System.out.println("\n--------------TC 015----------------\n");
         System.out.println("AGAIN ADD SOME PRODUCTS\n");
 
         WebElement product1 = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-fleece-jacket\"]"));
@@ -1032,13 +1032,81 @@ public class Swag_Labs_Test {
 
     }
 
+    @Test(priority = 16)
+    public void yourInformation() {
+        System.out.println("\n--------------TC 016----------------\n");
+        System.out.println("YOUR INFORMATION PAGE\n");
+
+        // Step 1: Verify navigation to the checkout page
+        System.out.println("Check the navigate to correct page:");
+
+        String expectedCheckoutPage = "Checkout: Your Information";
+        String actualCheckoutPage = driver.findElement(By.xpath("//span[contains(text(),'Checkout: Your Information')]")).getText();
+
+        if(actualCheckoutPage.equals(expectedCheckoutPage)){
+            System.out.println("Verification Passed: Successfully navigated to the checkout page.\n");
+        } else {
+            System.out.println("Verification Failed: Unsuccessfully navigated to the checkout page.\n");
+            return; // Exit the test if not on the correct page
+        }
+
+        // Step 2: Verify placeholders are present and input data
+        System.out.println("Verifying placeholders and entering data...\n");
+
+        // Verify and enter "First Name"
+        WebElement firstNameField = driver.findElement(By.id("first-name"));
+        String firstNamePlaceholder = firstNameField.getAttribute("placeholder");
+        if ("First Name".equals(firstNamePlaceholder)) {
+            System.out.println("Verification Passed : First Name placeholder is correct.\n");
+            firstNameField.sendKeys("Thanuga");
+        } else {
+            System.out.println("Verification Failed : First Name placeholder is incorrect.\n");
+        }
+
+        // Verify and enter "Last Name"
+        WebElement lastNameField = driver.findElement(By.id("last-name"));
+        String lastNamePlaceholder = lastNameField.getAttribute("placeholder");
+        if ("Last Name".equals(lastNamePlaceholder)) {
+            System.out.println("Verification Passed : Last Name placeholder is correct.\n");
+            lastNameField.sendKeys("Soysa");
+        } else {
+            System.out.println("Verification Failed : Last Name placeholder is incorrect. \n");
+        }
+
+        // Verify and enter "Zip/Postal Code"
+        WebElement zipCodeField = driver.findElement(By.id("postal-code"));
+        String zipCodePlaceholder = zipCodeField.getAttribute("placeholder");
+        if ("Zip/Postal Code".equals(zipCodePlaceholder)) {
+            System.out.println("Verification Passed : Zip/Postal Code placeholder is correct.\n");
+            zipCodeField.sendKeys("12345");
+        } else {
+            System.out.println("Verification Failed : Zip/Postal Code placeholder is incorrect.\n");
+        }
+
+        // Step 3: Click the Continue button
+        System.out.println("Clicking the Continue button to proceed to the next page.\n");
+        WebElement continueButton = driver.findElement(By.id("continue"));
+        continueButton.click();
+
+        // Step 4: Verify navigation to the next page
+        System.out.println("Verifying navigation to the next page...");
+        try {
+            WebElement overviewPageTitle = driver.findElement(By.xpath("//span[contains(text(),'Checkout: Overview')]"));
+            if (overviewPageTitle.isDisplayed()) {
+                System.out.println("Verification Passed : Navigation Successful: Reached the Checkout Overview page.\n");
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Verification Failed : Navigation Failed: Did not reach the Checkout Overview page.\n");
+        }
+    }
 
 
 
 
 
 
-        /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
+
+    /*---------------------------- SUPPORTIVE METHOD SECTION ----------------------------------------*/
 
     public void userLogin() throws InterruptedException {
         // Calling the SWAG-LABS URL
